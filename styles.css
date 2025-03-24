@@ -1,0 +1,182 @@
+:root {
+  /* Colors */
+
+  --Purple-50: hsl(260, 100%, 95%);
+  --Purple-300: hsl(264, 82%, 80%);
+  --Purple-500: hsl(263, 55%, 52%);
+  /* Neutrals */
+  --White: hsl(0, 0%, 100%);
+  --Grey-100: hsl(214, 17%, 92%);
+  --Grey-200: hsl(0, 0%, 81%);
+  --Grey-400: hsl(224, 10%, 45%);
+  --Grey-500: hsl(217, 19%, 35%);
+  --Dark-blue: hsl(219, 29%, 14%);
+  --Black: hsl(0, 0%, 7%);
+
+  /* Typography */
+  --ff-primary: "Barlow Semi Condensed", sans-serif;
+  --text-preset-1: 400 1.5rem / 1.2 var(--ff-primary);
+  --text-preset-2: 300 1rem / 1.1 var(--ff-primary);
+  --text-preset-3: 500 1rem / 1.4 var(--ff-primary);
+  --text-preset-4: 300 0.9rem/ 1.1 var(--ff-primary);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 3rem;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 13px;
+  font-family: var(--ff-primary);
+}
+
+/* Reset style */
+
+body {
+  background-color: var(--Grey-100);
+  padding-block: 3rem;
+  height: 100vh;
+}
+
+.main-container {
+  display: grid;
+  gap: 2.3rem;
+  grid-template-areas:
+    "purple-section"
+    "gray-section"
+    "section-white-one"
+    "section-black"
+    "section-white-two";
+}
+
+.section {
+  padding: 2.5rem;
+  color: var(--White);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.section.purple {
+  grid-area: purple-section;
+  background-color: var(--Purple-500);
+  position: relative;
+}
+
+.section.purple > img {
+  height: 103px;
+  width: auto;
+  position: absolute;
+  top: 0;
+  right: 3.9rem;
+  opacity: 60%;
+  z-index: 0;
+  display: none;
+}
+
+.section.gray {
+  grid-area: gray-section;
+  background-color: var(--Grey-400);
+}
+
+.section.white-one {
+  grid-area: section-white-one;
+  background-color: var(--White);
+  color: var(--Grey-500);
+}
+
+.section.black {
+  grid-area: section-black;
+  background-color: var(--Dark-blue);
+}
+
+.section.white-two {
+  grid-area: section-white-two;
+  background-color: var(--White);
+  color: var(--Grey-500);
+}
+
+h2 {
+  font: var(--text-preset-1);
+  z-index: 1;
+}
+
+.section > p {
+  font: var(--text-preset-2);
+}
+
+.personal-details {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.text-details > h3 {
+  font: var(--text-preset-2);
+  color: var(--White);
+}
+
+.text-details > p {
+  font: var(--text-preset-4);
+  color: var(--Purple-50);
+}
+
+.personal-details > img {
+  height: 30px;
+  border-radius: 50%;
+}
+
+/* Mobile layout */
+
+.main-container {
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .main-container {
+    grid-template-areas:
+      "purple-section purple-section"
+      "gray-section section-white-one"
+      "section-black section-black"
+      "section-white-two section-white-two";
+  }
+
+  .section.purple > img {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main-container {
+    grid-template-areas:
+      "purple-section purple-section gray-section section-white-two"
+      "section-white-one section-black section-black section-white-two";
+  }
+
+  .section.purple > img {
+    display: block;
+  }
+}
