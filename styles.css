@@ -49,6 +49,11 @@ body {
   background-color: var(--Grey-100);
   padding-block: 3rem;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 2rem;
 }
 
 .main-container {
@@ -60,6 +65,9 @@ body {
     "section-white-one"
     "section-black"
     "section-white-two";
+  max-width: 1110px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .section {
@@ -87,6 +95,7 @@ body {
   opacity: 60%;
   z-index: 0;
   display: none;
+  max-width: 100%;
 }
 
 .section.gray {
@@ -144,12 +153,12 @@ h2 {
 /* Mobile layout */
 
 .main-container {
-  max-width: 85%;
   margin: 0 auto;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .main-container {
+    grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
       "purple-section purple-section"
       "gray-section section-white-one"
@@ -171,6 +180,7 @@ h2 {
   }
 
   .main-container {
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
       "purple-section purple-section gray-section section-white-two"
       "section-white-one section-black section-black section-white-two";
